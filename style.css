@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+body{
+    background-color: #000;
+    margin: 0px;
+    font-family: roboto;
+}
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+}
+#settings-tab{
+    background-color: #09090a;
+    color: #EEE;
+    border-left: white solid 1px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#settings-title{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+}
+.setting{
+    padding: 15px 5px;
+    background-color: #0b0b0e;
+}
+#display-tab{
+    background-color: #030406;
+}
