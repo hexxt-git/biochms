@@ -8,7 +8,8 @@ body{
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: calc(100vw - 400px) 400px;
+    grid-template-rows: 100vh;
 }
 #settings-tab{
     background-color: #09090a;
