@@ -97,5 +97,5 @@ function parser(string, separate_H=false){
     return eval(string)
 }
 
-console.table(parser('CH3C(//O)OCH3').render(width/3, height*2/3, 70, 70, true))
+console.table(parser('CH3C(//O)OCH3', true).render(width/3, height*2/3, 70, 70, true))
 
