@@ -12,7 +12,8 @@ class atom{
     }
     render(x, y){
         c.fillRect(x-2, y-2, 4, 4)
-        c.fillText(this.name, x+8, y+4)
+        //c.strokeText(this.name, x+8, y+8)
+        c.fillText(this.name, x+8, y+8)
         //c.fillText(this.name+' ('+String(Math.round(x))+', '+String(Math.round(y))+')', x+8, y+4)
     }
 }
@@ -45,10 +46,12 @@ class branch {
             }
             if(this.branch[i] instanceof bond){
                 for(let j = 1 ; j < this.branch[i].number ; j++){
-                    let offset = Math.round(j/2)*3*(j%2*2-1)
+                    let offset = Math.round(j/2)*bond_offset*(j%2*2-1)
                     c.beginPath()
                     c.moveTo(x+offset*(dy>0?-1:1), y+offset*(dx>0?1:-1))
+                    c.fillRect(x+offset*(dy>0?-1:1)-2, y+offset*(dx>0?1:-1)-2, 4, 4)
                     c.lineTo(x+dx+offset*(dy>0?-1:1), y+dy+offset*(dx>0?1:-1))
+                    c.fillRect(x+dx+offset*(dy>0?-1:1)-2, y+dy+offset*(dx>0?1:-1)-2, 4, 4)
                     c.stroke()
                 }
             }
@@ -97,5 +100,35 @@ function parser(string, separate_H=false){
     return eval(string)
 }
 
-console.table(parser('CH3C(//O)OCH3', true).render(width/3, height*2/3, 70, 70, true))
+let bond_offset = 5
+let start_x = width*2/5
+let start_y = height*3/5
+let scale = 80
 
+let formula
+
+if(localStorage.getItem('formula') != undefined){
+    formula = localStorage.getItem('formula')
+} else {
+    formula = 'CH3CH2C(OH)//O'
+}
+
+$('formula-changer').value = formula
+
+$('submit').addEventListener('click',()=>{
+    formula = $('formula-changer').value
+    localStorage.setItem('formula', formula)
+    location.reload()
+})
+
+$('reset').addEventListener('click',()=>{
+    formula = 'CH3CH2C(OH)//O'
+    localStorage.setItem('formula', formula)
+    location.reload()
+})
+
+let chemical = parser(formula, true)
+
+returned = chemical.render(start_x, start_y, scale, scale, true)
+
+console.table(returned)

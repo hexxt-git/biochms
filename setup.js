@@ -1,18 +1,13 @@
-let container = $('display-tab')
 let canvas = $('canvas')
 let c = canvas.getContext('2d')
 
-function resize(){
-    width = container.clientWidth
-    height = container.clientHeight
+width = window.innerWidth
+height = window.innerHeight
 
-    canvas.width = width
-    canvas.height = height - 4
+canvas.width = width
+canvas.height = height - 4
 
-    c.fillStyle = '#CCC'
-    c.strokeStyle = '#CCC'
-    c.font = '16px roboto';
-}
-resize()
-window.addEventListener('resize', resize)
+c.fillStyle = 'black'
+c.strokeStyle = 'black'
 
+c.font = '25px roboto';

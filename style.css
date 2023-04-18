@@ -1,38 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 body{
-    background-color: #000;
+    background-color: white;
     margin: 0px;
     font-family: roboto;
+    font-size: 25px;
 }
-#container{
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: calc(100vw - 400px) 400px;
-    grid-template-rows: 100vh;
+#inputs{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    
 }
-#settings-tab{
-    background-color: #09090a;
-    color: #EEE;
-    border-left: white solid 1px;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#formula-changer{
+    height: 30px;
+    font-family: roboto;
+    font-size: 20px;
 }
-#settings-title{
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    text-decoration: underline 2px;
-    text-underline-offset: 3px;
-}
-.setting{
-    padding: 15px 5px;
-    background-color: #0b0b0e;
-}
-#display-tab{
-    background-color: #030406;
+#submit, #reset{
+    height: 35px;
+    font-family: roboto;
+    font-size: 20px;
 }
